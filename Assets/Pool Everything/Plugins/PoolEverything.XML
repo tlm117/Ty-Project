@@ -1,0 +1,2057 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PoolEverything</name>
+    </assembly>
+    <members>
+        <member name="T:PoolEverything.ColliderCondition">
+            <summary>
+            Condition on which to check for collider interactions.
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ColliderCondition.Enter">
+            <summary>
+            Another collider has entered the bounding box
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ColliderCondition.Stay">
+            <summary>
+            Another collider is staying in the bounding box, works like Enter but will trigger continously
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ColliderCondition.Exit">
+            <summary>
+            Indicating another collider has exited the bounding box
+            </summary>
+        </member>
+        <member name="T:PoolEverything.ColliderFilter">
+            <summary>
+            Configuration to filter what trigger events are fired
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ColliderFilter.condition">
+            <summary>
+            The condition to trigger the collider event
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ColliderFilter.mask">
+            <summary>
+            Mask uded to filter GameObjects for triggers
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ColliderFilter.tag">
+            <summary>
+            GameObject tag to serve as the trigger mask
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ColliderFilter.layer">
+            <summary>
+            GameObject layer to serve as the trigger mask.
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ColliderFilter.name">
+            <summary>
+            GameObject name to serve as the trigger mask.
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ColliderFilter.ConditionMatched(PoolEverything.ColliderCondition,UnityEngine.Component)">
+            <summary>
+            Checks filter settings to invoke collider trigger event
+            </summary>
+            <param name="condition">Condition to check</param>
+            <param name="other">Other collider interacting with this collider</param>
+            <returns>True if the filter configuration settings False if not</returns>
+        </member>
+        <member name="T:PoolEverything.ColliderMask">
+            <summary>
+            Tags or layers to filter colliders for trigger.
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ColliderMask.None">
+            <summary>
+            No filter applied all colliders will be considered
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ColliderMask.Tag">
+            <summary>
+            Filter GameObjects by tag
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ColliderMask.Layer">
+            <summary>
+            Filter GameObjects by layer
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ColliderMask.Name">
+            <summary>
+            Filter GameObjects by name in scene view
+            </summary>
+        </member>
+        <member name="T:PoolEverything.PooledEventArgs">
+            <summary>
+            Args passed with pool spawners and pool recyclers
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PooledEventArgs.poolManager">
+            <summary>
+            The pool manager that houses the prefab
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PooledEventArgs.pooledObject">
+            <summary>
+            The prefab GameObject
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PooledEventArgs.#ctor(PoolEverything.PoolManager,UnityEngine.GameObject)">
+            <summary>
+            Creates a new event args
+            </summary>
+            <param name="poolManager">The pool manager that houses the prefab</param>
+            <param name="pooledObject">The prefab GameObject</param>
+        </member>
+        <member name="T:PoolEverything.PooledObjectAddedEventArgs">
+            <summary>
+            EventArgs sent when a pooled object is added to the pool
+            <para>Contains the pooled info object that was added</para>
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PooledObjectAddedEventArgs.pooledInfo">
+            <summary>
+            Info containing pooled objects
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PooledObjectAddedEventArgs.#ctor(PoolEverything.Pools.PooledInfo)">
+            <summary>
+            Called when a pooled object is added to the pool
+            </summary>
+            <param name="pooledInfo">Info containing pooled objects</param>
+        </member>
+        <member name="T:PoolEverything.PoolLoadedEventArgs">
+            <summary>
+            EventArgs sent when a pool is loaded and initial pooled objects are created
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolLoadedEventArgs.genericPools">
+            <summary>
+            List of all pools created
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolLoadedEventArgs.#ctor(System.Collections.Generic.Dictionary{UnityEngine.Object,PoolEverything.Pools.Pool})">
+            <summary>
+            Constructor used when a pool is loaded and initial pooled objects are created
+            </summary>
+            <param name="genericPools">List of all pools created</param>
+        </member>
+        <member name="T:PoolEverything.PoolObjectLoadedEventArgs">
+            <summary>
+            EventArgs sent when a pooled object is instantiated
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolObjectLoadedEventArgs.pool">
+            <summary>
+            Pool that holds pooled object
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolObjectLoadedEventArgs.poolInfo">
+            <summary>
+            Info containing pooled object
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolObjectLoadedEventArgs.#ctor(PoolEverything.Pools.Pool,PoolEverything.Pools.PooledInfo)">
+            <summary>
+            Called when a pooled object is instantiated
+            </summary>
+            <param name="pool">Pool that holds pooled object</param>
+            <param name="poolInfo">Info containing the pool object</param>
+        </member>
+        <member name="T:PoolEverything.PoolObjectRequestedEventArgs">
+            <summary>
+            EventArgs sent when a pooled object is requested
+            <para>Contains an index to the pool and the pooled info object</para>
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolObjectRequestedEventArgs.poolIndex">
+            <summary>
+            Pool index that contains the request pooled object
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolObjectRequestedEventArgs.pooledInfo">
+            <summary>
+            Info containing the pool object
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolObjectRequestedEventArgs.#ctor(System.Int32,PoolEverything.Pools.PooledInfo)">
+            <summary>
+            Constructor for EventArgs sent when a pooled object is requested
+            </summary>
+            <param name="poolIndex">Pool index that contains the request pooled object</param>
+            <param name="pooledInfo">Info containing the pool object</param>
+        </member>
+        <member name="T:PoolEverything.Utility.HealthTest">
+            <summary>
+            Uitilty behavoiur to use life reduction on collision enter event
+            <para>Used to test reflection calls in value info references</para>
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Utility.HealthTest.m_Health">
+            <summary>
+            m_Health - test public class reference
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Utility.HealthTest.life">
+            <summary>
+            life - test public float
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Utility.HealthTest.m_Ammo">
+            <summary>
+            m_Ammo - test protected float
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Utility.HealthTest.speed">
+            <summary>
+            speed - test public int
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Utility.HealthTest.m_Xfactor">
+            <summary>
+            m_Xfactor - test protected int
+            </summary>
+        </member>
+        <member name="M:PoolEverything.Utility.HealthTest.Awake">
+            <summary>
+            Called to init behaviour
+            </summary>
+        </member>
+        <member name="M:PoolEverything.Utility.HealthTest.Reset">
+            <summary>
+            Resets life value
+            </summary>
+        </member>
+        <member name="T:PoolEverything.Utility.RigidbodyBehaviour">
+            <summary>
+            Uitilty behavoiur to use a rigidbody projectile
+            <para>Moves a rigidbody position in facing z at a set speed in fixed update</para>
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Utility.RigidbodyBehaviour.speed">
+            <summary>
+            Speed to move rigidbody
+            </summary>
+        </member>
+        <member name="T:PoolEverything.Limits.Limited`1">
+            <summary>
+            Limited value within range holds current value
+            </summary>
+            <typeparam name="T">Type of value to hold must implement System.IComparable</typeparam>
+        </member>
+        <member name="F:PoolEverything.Limits.Limited`1.m_Current">
+            <summary>
+            Current value
+            </summary>
+        </member>
+        <member name="P:PoolEverything.Limits.Limited`1.current">
+            <summary>
+            Current value accessor
+            </summary>
+        </member>
+        <member name="M:PoolEverything.Limits.Limited`1.#ctor(`0,`0,`0,`0,`0)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="min">Minimum value</param>
+            <param name="max">Maximum value</param>
+            <param name="minLimit">Minimum limit value</param>
+            <param name="maxLimit">Maximum limit value</param>
+            <param name="current">Current value if not set default(T) is used</param>
+        </member>
+        <member name="M:PoolEverything.Limits.Limited`1.Clamp">
+            <summary>
+            Clamps the current value between min and max
+            </summary>
+        </member>
+        <member name="T:PoolEverything.Limits.LimitedInt">
+            <summary>
+            Limited int value
+            </summary>
+        </member>
+        <member name="M:PoolEverything.Limits.LimitedInt.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="min">Minimum value</param>
+            <param name="max">Maximum value</param>
+            <param name="minLimit">Minimum limit value</param>
+            <param name="maxLimit">Maximum limit value</param>
+            <param name="current">Current value if not set default(int) is used</param>
+        </member>
+        <member name="T:PoolEverything.Limits.LimitedFloat">
+            <summary>
+            Limited float value
+            </summary>
+        </member>
+        <member name="M:PoolEverything.Limits.LimitedFloat.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="min">Minimum value</param>
+            <param name="max">Maximum value</param>
+            <param name="minLimit">Minimum limit value</param>
+            <param name="maxLimit">Maximum limit value</param>
+            <param name="current">Current value if not set default(float) is used</param>
+        </member>
+        <member name="T:PoolEverything.Limits.LimitEditor">
+            <summary>
+            Type of editor to use
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Limits.LimitEditor.Slider">
+            <summary>
+            Slider value adjust
+            <para>NOTE: Not Implemented</para>
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Limits.LimitEditor.MinMaxSlider">
+            <summary>
+            Minimum and Maximum slider
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Limits.LimitEditor.MinMaxField">
+            <summary>
+            Minimum and Maximum fields
+            </summary>
+        </member>
+        <member name="T:PoolEverything.Limits.LimitValueAttribute">
+            <summary>
+            Limit values property/field attribute
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Limits.LimitValueAttribute.limitEditor">
+            <summary>
+            Editor type
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Limits.LimitValueAttribute.tooltip">
+            <summary>
+            Tooltip to use
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Limits.LimitValueAttribute.unitOfMeasure">
+            <summary>
+            Used for post tooltip message to describe what type of values are being modified.
+            </summary>
+        </member>
+        <member name="M:PoolEverything.Limits.LimitValueAttribute.#ctor(PoolEverything.Limits.LimitEditor,System.String,System.String)">
+            <summary>
+            Constructor to create a Limit Editor
+            </summary>
+            <param name="limitEditor">Type od editor to use</param>
+            <param name="tooltip">Tooltip to use</param>
+            <param name="unitOfMeasure">Used for post tooltip message to describe what type of values are being modified.</param>
+        </member>
+        <member name="T:PoolEverything.Limits.LimitInt">
+            <summary>
+            Limits integer value
+            </summary>
+        </member>
+        <member name="M:PoolEverything.Limits.LimitInt.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="min">Minimum value</param>
+            <param name="max">Maximum value</param>
+            <param name="minLimit">Minimum limit value</param>
+            <param name="maxLimit">Maximum limit value</param>
+        </member>
+        <member name="T:PoolEverything.Limits.LimitFloat">
+            <summary>
+            Limits float value
+            </summary>
+        </member>
+        <member name="M:PoolEverything.Limits.LimitFloat.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="min">Minimum value</param>
+            <param name="max">Maximum value</param>
+            <param name="minLimit">Minimum limit value</param>
+            <param name="maxLimit">Maximum limit value</param>
+        </member>
+        <member name="T:PoolEverything.Limits.Limit`1">
+            <summary>
+            Limits a value within a range
+            </summary>
+            <typeparam name="T">Type of value to use muse implement System.IComparable</typeparam>
+        </member>
+        <member name="F:PoolEverything.Limits.Limit`1.m_Minimum">
+            <summary>
+            Minimum value
+            </summary>
+        </member>
+        <member name="P:PoolEverything.Limits.Limit`1.minimum">
+            <summary>
+            Minimum value accessor
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Limits.Limit`1.m_Maximum">
+            <summary>
+            Minimum value
+            </summary>
+        </member>
+        <member name="P:PoolEverything.Limits.Limit`1.maximum">
+            <summary>
+            Minimum value accessor
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Limits.Limit`1.m_MinLimit">
+            <summary>
+            Minimum limit value
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Limits.Limit`1.m_MaxLimit">
+            <summary>
+            Maximum limit value
+            </summary>
+        </member>
+        <member name="P:PoolEverything.Limits.Limit`1.minLimit">
+            <summary>
+            Minimum limit accessor
+            </summary>
+        </member>
+        <member name="P:PoolEverything.Limits.Limit`1.maxLimit">
+            <summary>
+            Maximum limit accessor
+            </summary>
+        </member>
+        <member name="M:PoolEverything.Limits.Limit`1.#ctor(`0,`0,`0,`0)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="min">Minimum value</param>
+            <param name="max">Maximum value</param>
+            <param name="minLimit">Minimum limit value</param>
+            <param name="maxLimit">Maximum limit value</param>
+        </member>
+        <member name="T:PoolEverything.PoolKeyPickerAttribute">
+            <summary>
+            Attribute to draw a Pool index popup to replace the integer field
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolKeyPickerAttribute.label">
+            <summary>
+            Label to replace the default field name
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolKeyPickerAttribute.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:PoolEverything.PoolManager">
+            <summary>
+            Manages all Object references and the pools that contain their clones
+            <para>The Pool Manager interacts directly with the generic pools to provide fast indexed access to the pooled objects.</para>
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolManager.m_PoolReferences">
+            <summary>
+            References to the objects to be pooled, usually a prefab reference
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolManager.genericPools">
+            <summary>
+            Access to the underlying generic pool containers
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolManager.poolReferences">
+            <summary>
+            Access to the references to the objects to be pooled, usually a prefab reference
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolManager.trans">
+            <summary>
+            The transform the Pool Manages is attached to
+            <para>Set in the awake function to cache the transform</para>
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolManager.OnRequestedObject">
+            <summary>
+            Invoked when a pooled object is requested by the framework
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolManager.OnPoolLoaded">
+            <summary>
+            Invoked when a all generic pools are loaded with initial objects for the first time
+            <para>Subscribe to this event before the start method is called.</para>
+            <para>NOTE: Subcribers at or after the start call will not be notified</para>
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolManager.OnObjectLoaded">
+            <summary>
+            Invoked when a pooled object loaded
+            <para>Called only after the initial generic pool objects are loaded and additional objects are requested</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolManager.Awake">
+            <summary>
+            Awake is called when the script instance is being loaded
+            <para>The generic pools are initialized but monitoring has not yet started for requests until OnPoolLoaded is called</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolManager.Start">
+            <summary>
+            Start is delayed until subscribers to the pool loaded event has time to hook up
+            <para>The generic pools are initialized and monitoring for request has started</para>
+            </summary>
+            <returns>When OnPoolLoaded has been invoked.</returns>
+        </member>
+        <member name="M:PoolEverything.PoolManager.RequestObject(System.Int32)">
+            <summary>
+            Gets a requested pooled object
+            <para>Sets rigidbody if any to zero velocities</para>
+            </summary>
+            <param name="poolIndex">Pool index representing the type of prefab used</param>
+            <returns>An object from the pool or NULL if the pool is empty</returns>
+        </member>
+        <member name="M:PoolEverything.PoolManager.RequestActiveObject(System.Int32)">
+            <summary>
+            Gets a requested pooled object
+            <para>Sets rigidbody if any to zero velocities</para>
+            <para>Sets GameObject active state to true</para>
+            </summary>
+            <param name="poolIndex">Pool index representing the type of prefab used</param>
+            <returns>An active object from the pool or NULL if the pool is empty</returns>
+        </member>
+        <member name="M:PoolEverything.PoolManager.GetPoolKey(System.Int32)">
+            <summary>
+            Given an index the reference Object to the pool will be retrieved
+            </summary>
+            <param name="poolIndex">Pool index representing the type of prefab used</param>
+            <returns>Object key to the pool collection for the poolIndex</returns>
+        </member>
+        <member name="M:PoolEverything.PoolManager.GetPool(System.Int32)">
+            <summary>
+            Gets the pool refered by the poolIndex
+            </summary>
+            <param name="poolIndex">Pool index representing the type of prefab used</param>
+            <returns>The pool collection for the poolIndex</returns>
+        </member>
+        <member name="T:PoolEverything.PoolManagerPickerAttribute">
+            <summary>
+            Attribute to draw a Pool Manager popup to replace the object reference slot
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolManagerPickerAttribute.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:PoolEverything.PoolSettings">
+            <summary>
+            Setting required to manage pools
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolSettings.Instance">
+            <summary>
+            Access to single instance class
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSettings.GetTryIt">
+            <summary>
+            Is this version the free Try It version
+            </summary>
+            <returns>True if this is the Try It version</returns>
+        </member>
+        <member name="M:PoolEverything.PoolSettings.GetInEditor">
+            <summary>
+            The project is running in the Unity Editor
+            </summary>
+            <returns>rue if this is the application is running in the Unity Editor</returns>
+        </member>
+        <member name="M:PoolEverything.PoolSettings.DoTryIt(System.Action)">
+            <summary>
+            Allows action to be invoked depending on is try it version
+            </summary>
+            <param name="action">The action to preform.  ie The main action to disable the functionality</param>
+        </member>
+        <member name="T:PoolEverything.PoolReference">
+            <summary>
+            Pooled object prefab reference and the minimum and maximum amounts to instantiate
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolReference.reference">
+            <summary>
+            Pooled object prefab reference
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolReference.poolIndex">
+            <summary>
+            The index of the pool that holds this PooledInfo gameObject
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolReference.minimum">
+            <summary>
+            Minimum spawn amount of this prefab
+            <para>The initial amount instantiated by the pool manager</para>
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolReference.maximum">
+            <summary>
+            Maximum spawn amount of this prefab
+            </summary>
+        </member>
+        <member name="T:PoolEverything.Pools.Pool">
+            <summary>
+            Pool that contains a list of one referenced object
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Pools.Pool.m_Parent">
+            <summary>
+            The pool manager that houses this pool
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Pools.Pool.m_PoolReference">
+            <summary>
+            Reference to the pooled object
+            </summary>
+        </member>
+        <member name="P:PoolEverything.Pools.Pool.Key">
+            <summary>
+            Reference to the prefab used for these pooled objects used as the pool manager key
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Pools.Pool.m_Indexer">
+            <summary>
+            Index of last pooled object resuested from the pool
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Pools.Pool.m_OverloadCount">
+            <summary>
+            Amount that was requested while at maximum active object spawn count
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Pools.Pool.m_PoolObjects">
+            <summary>
+            List of pooled info
+            </summary>
+        </member>
+        <member name="P:PoolEverything.Pools.Pool.poolObjects">
+            <summary>
+            List of pooled info
+            </summary>
+        </member>
+        <member name="P:PoolEverything.Pools.Pool.overloadCount">
+            <summary>
+            Amount that was requested while at maximum active object spawn count
+            </summary>
+        </member>
+        <member name="E:PoolEverything.Pools.Pool.OnObjectAdded">
+            <summary>
+            Fired when a new object is instantiated and added to the pool
+            </summary>
+        </member>
+        <member name="M:PoolEverything.Pools.Pool.#ctor(UnityEngine.Transform,PoolEverything.PoolReference)">
+            <summary>
+            Initializes the pool
+            </summary>
+            <param name="parent"></param>
+            <param name="poolReference"></param>
+        </member>
+        <member name="M:PoolEverything.Pools.Pool.Initialize">
+            <summary>
+            Initializes pool objects and adds initial amount of pooled objects to tot pool
+            </summary>
+        </member>
+        <member name="M:PoolEverything.Pools.Pool.AddPoolObject">
+            <summary>
+            Instantiates a new GameObject and addes it to the pool
+            <para>This is when OnObjectAdded is invoked</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.Pools.Pool.RequestObject">
+            <summary>
+            Call to request a pooled object
+            </summary>
+            <returns>Pooled object or creates a new one once pool 
+            amount is below maximum referenced amount</returns>
+        </member>
+        <member name="T:PoolEverything.Pools.PooledInfo">
+            <summary>
+            A pooled object reference
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Pools.PooledInfo.index">
+            <summary>
+            Index in the pool
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Pools.PooledInfo.poolIndex">
+            <summary>
+            The index of the pool that holds this PooledInfo gameObject
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Pools.PooledInfo.gameObject">
+            <summary>
+            Runtime GameObject reference
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Pools.PooledInfo.poolManager">
+            <summary>
+            Pool manager that manages this object
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Pools.PooledInfo.rigidbody2D">
+            <summary>
+            The attached 2D rigidbody
+            </summary>
+        </member>
+        <member name="F:PoolEverything.Pools.PooledInfo.rigidbody">
+            <summary>
+            The attached rigidbody
+            </summary>
+        </member>
+        <member name="M:PoolEverything.Pools.PooledInfo.#ctor(System.Int32,UnityEngine.GameObject,System.Int32)">
+            <summary>
+            Sets pooled info for new pooled object
+            <para>Checks for attached rigidbody and set boolean flag for fast runtime reference</para>
+            </summary>
+            <param name="index">Index to GameObject in pool</param>
+            <param name="gameObject">GameObject reference</param>
+            <param name="poolIndex">The index of the pool that holds this PooledInfo gameObject</param>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.ColliderRecycler">
+            <summary>
+            Base class to recycle a pooled object on collider trigger events
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolRecyclers.ColliderRecycler.m_TriggerMask">
+            <summary>
+            Configuration to filter what trigger events are fired
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolRecyclers.ColliderRecycler.m_ValueInfo">
+            <summary>
+            Value info object for member modification and/or monitoring
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolRecyclers.ColliderRecycler.valueInfo">
+            <summary>
+            Value info object for member modification and/or monitoring
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.ColliderRecycler.Awake">
+            <summary>
+            Initializes value info object
+            </summary>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.Collision2DRecycler">
+            <summary>
+            Recycles a pooled object on collider2D collision events
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.Collision2DRecycler.ConfigureRecycleComponent``1(UnityEngine.GameObject)">
+            <summary>
+            Sets up a GameObject to be recycled trigger mask
+            <para>Override to configure additional functionality to the pooled object</para>
+            </summary>
+            <typeparam name="T">Type of Recycle component to use</typeparam>
+            <param name="pooledObject">GameObject from the pool to be recycled</param>
+            <returns>A configured recycle component</returns>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.CollisionRecycler">
+            <summary>
+            Recycles a pooled object on collider collision events
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.CollisionRecycler.ConfigureRecycleComponent``1(UnityEngine.GameObject)">
+            <summary>
+            Sets up a GameObject to be recycled trigger mask
+            <para>Override to configure additional functionality to the pooled object</para>
+            </summary>
+            <typeparam name="T">Type of Recycle component to use</typeparam>
+            <param name="pooledObject">GameObject from the pool to be recycled</param>
+            <returns>A configured recycle component</returns>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.ConditionalRecycler">
+            <summary>
+            Recycles a pooled object on a conditional biasis
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolRecyclers.ConditionalRecycler.valueInfo">
+            <summary>
+            Value info object for member modification
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.ConditionalRecycler.Awake">
+            <summary>
+            Initializes value info object
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.ConditionalRecycler.ConfigureRecycleComponent``1(UnityEngine.GameObject)">
+            <summary>
+            Sets up a GameObject to be recycled
+            <para>Override to configure additional functionality to the pooled object</para>
+            </summary>
+            <typeparam name="T">Type of Recycle component to use</typeparam>
+            <param name="pooledObject">GameObject from the pool to be recycled</param>
+            <returns>A configured recycle component</returns>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.DistanceRecycler">
+            <summary>
+            Recycles a pooled object bases on the distance to the spawner
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolRecyclers.DistanceRecycler.distance">
+            <summary>
+            Distance from spawner to recycle pooled object
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.DistanceRecycler.ConfigureRecycleComponent``1(UnityEngine.GameObject)">
+            <summary>
+            Sets up a GameObject to be recycled distance
+            <para>Override to configure additional functionality to the pooled object</para>
+            </summary>
+            <typeparam name="T">Type of Recycle component to use</typeparam>
+            <param name="pooledObject">GameObject from the pool to be recycled</param>
+            <returns>A configured recycle component</returns>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.PoolRecycler">
+            <summary>
+            Recycles a pooled object
+            <para>This happens by setting the the GameObject active state to false</para>
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolRecyclers.PoolRecycler.m_PoolManager">
+            <summary>
+            Pool manager that the object to recycle resides in
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolRecyclers.PoolRecycler.m_PoolIndex">
+            <summary>
+            Indices of the pools in the pool manager
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolRecyclers.PoolRecycler.m_PoolIndexes">
+            <summary>
+            Index of the pool in the pool manager
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolRecyclers.PoolRecycler.poolManager">
+            <summary>
+            Pool manager that the object to recycle resides in
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolRecyclers.PoolRecycler.poolIndex">
+            <summary>
+            Index of the pool in the pool manager
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolRecyclers.PoolRecycler.poolIndexes">
+            <summary>
+            Index of the pools in the pool manager
+            </summary>
+        </member>
+        <member name="E:PoolEverything.PoolRecyclers.PoolRecycler.onRecyclerSuccess">
+            <summary>
+            Invoked when a pooled object was successfuly spawned
+            <para>Will not be called if the pool has no in-active objects when the request is made</para>
+            </summary>
+        </member>
+        <member name="E:PoolEverything.PoolRecyclers.PoolRecycler.onPlaceOnStandBy">
+            <summary>
+            Will be invoked if a request is made from the pool and it has no in-active objects 
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolRecyclers.PoolRecycler.OnRecyclerSuccess">
+            <summary>
+            Invoked when a pooled object was successfuly spawned
+            <para>Will not be called if the pool has no in-active objects when the request is made</para>
+            </summary>
+        </member>
+        <member name="E:PoolEverything.PoolRecyclers.PoolRecycler.OnPlaceOnStandBy">
+            <summary>
+            Will be invoked if a request is made from the pool and it has no in-active objects 
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.PoolRecycler.Awake">
+            <summary>
+            Subscribes to the pool managers loaded events
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.PoolRecycler.ConfigureRecycleComponent``1(UnityEngine.GameObject)">
+            <summary>
+            Sets up a GameObject to be recycled
+            <para>Override to configure additional functionality to the pooled object</para>
+            </summary>
+            <typeparam name="T">Type of Recycle component to use</typeparam>
+            <param name="pooledObject">GameObject from the pool to be recycled</param>
+            <returns>A configured recycle component</returns>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.PoolRecycler.PlaceOnStandBy(UnityEngine.GameObject)">
+            <summary>
+            Set the GameObject to inactive and invokes recycle event
+            </summary>
+            <param name="pooledObject">GameObject that was spawned from a managed pool</param>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.Recycle">
+            <summary>
+            Base calss providing a link to the pool recycler
+            <para>The inheriting classes will be attached to each pooled object upon creation</para>
+            <para>One or more of these classes may be added as a pooled object component list</para>
+            </summary>
+        </member>
+        <member name="E:PoolEverything.PoolRecyclers.Recycle.OnRecycling">
+            <summary>
+            Invoked before a pooled object is recycled
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolRecyclers.Recycle.m_PoolRecycler">
+            <summary>
+            The recycler linked to this recycle pooled object
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolRecyclers.Recycle.m_PoolManager">
+            <summary>
+            Pool manager reference
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolRecyclers.Recycle.m_Trans">
+            <summary>
+            Used to cache local transform
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolRecyclers.Recycle.poolRecycler">
+            <summary>
+            The recycler linked to this recycle pooled object
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolRecyclers.Recycle.poolManager">
+            <summary>
+            Pool manager reference
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.Recycle.Awake">
+            <summary>
+            Caches local transform
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.Recycle.OnEnable">
+            <summary>
+            Starts 'StartPlaceOnStandBy' listening from the linked recycler
+            <para>This coroutine places the pooled object back in the pool when its useage is complete</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.Recycle.OnDisable">
+            <summary>
+            Stops the listening from the linked recycler
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.Recycle.PlaceOnStandBy">
+            <summary>
+            Puts the pooled object back in the pool
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.Recycle.StartPlaceOnStandBy">
+            <summary>
+            Coroutine listening from the linked recycler to place the pooled object on standby
+            <para>Override in inheriting classes to define functionality</para>
+            </summary>
+            <returns>Coroutine iterator</returns>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.Recycle.GetOwnersPosition">
+            <summary>
+            Pool Manager that manages the GameObject this component is attached to
+            </summary>
+            <returns>The position of the Pool Manager transform</returns>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.RecycleByCollider">
+            <summary>
+            Link to the pool recycler to recycle pooled objects on collider triggers
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolRecyclers.RecycleByCollider.triggerMask">
+            <summary>
+            Configuration to filter what trigger events are fired
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.RecycleByCollider.ColliderCheck(PoolEverything.ColliderCondition,UnityEngine.Component)">
+            <summary>
+            Uses trigger mask collider filter to match other collider for recycle
+            </summary>
+            <param name="condition">Condition to check for</param>
+            <param name="other">Other GameObject collider</param>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.RecycleByCollision2D">
+            <summary>
+            Link to the pool recycler to recycle pooled objects on collision2D triggers
+            <para>NOTE: Do not add this class to GameObjects manually critical base class method calls will fail</para>
+            </summary>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.RecycleByCollision">
+            <summary>
+            Link to the pool recycler to recycle pooled objects on collision triggers
+            <para>NOTE: Do not add this class to GameObjects manually critical base class method calls will fail</para>
+            </summary>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.RecycleByConditional">
+            <summary>
+            Link to the pool recycler to recycle pooled objects on match conditions
+            <para>NOTE: Do not add this class to GameObjects manually critical base class method calls will fail</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.RecycleByConditional.StartPlaceOnStandBy">
+            <summary>
+            Coroutine listening from the linked recycler to place the pooled object on standby
+            </summary>
+            <returns>Coroutine iterator</returns>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.RecycleByDistance">
+            <summary>
+            Link to the pool recycler to recycle pooled objects distance condition
+            <para>NOTE: Do not add this class to GameObjects manually critical base class method calls will fail</para>
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolRecyclers.RecycleByDistance.distance">
+            <summary>
+            Distance from spawner to recycle this pooled object
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.RecycleByDistance.StartPlaceOnStandBy">
+            <summary>
+            Coroutine listening from the linked recycler to place the pooled object on standby
+            </summary>
+            <returns>Coroutine iterator</returns>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.RecycleByTime">
+            <summary>
+            Recycles a pooled object by a time value in seconds
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolRecyclers.RecycleByTime.delayTime">
+            <summary>
+            Time to delay recycler call to place pooled object on stand by
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.RecycleByTime.StartPlaceOnStandBy">
+            <summary>
+            Coroutine listening from the linked recycler to place the pooled object on standby
+            </summary>
+            <returns>Coroutine iterator</returns>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.RecycleByTrigger2D">
+            <summary>
+            Link to the pool recycler to recycle pooled objects on trigger2D events
+            <para>NOTE: Do not add this class to GameObjects manually critical base class method calls will fail</para>
+            </summary>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.RecycleByTrigger">
+            <summary>
+            Link to the pool recycler to recycle pooled objects on trigger events
+            <para>NOTE: Do not add this class to GameObjects manually critical base class method calls will fail</para>
+            </summary>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.RecycleByValue">
+            <summary>
+            Link to the pool recycler to recycle pooled objects when value comparer is true
+            <para>NOTE: Do not add this class to GameObjects manually critical base class method calls will fail</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.RecycleByValue.StartPlaceOnStandBy">
+            <summary>
+            Coroutine listening from the linked recycler to place the pooled object on standby
+            </summary>
+            <returns>Coroutine iterator</returns>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.TimedRecycler">
+            <summary>
+            Recycles a pooled object by a time value in seconds
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolRecyclers.TimedRecycler.delayTime">
+            <summary>
+            Time to delay recycler call to recycle pooled object
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.TimedRecycler.ConfigureRecycleComponent``1(UnityEngine.GameObject)">
+            <summary>
+            Sets up a GameObject to be recycled delay time
+            <para>Override to configure additional functionality to the pooled object</para>
+            </summary>
+            <typeparam name="T">Type of Recycle component to use</typeparam>
+            <param name="pooledObject">GameObject from the pool to be recycled</param>
+            <returns>A configured recycle component</returns>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.Trigger2DRecycler">
+            <summary>
+            Recycles a pooled object on a collider2D trigger event
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.Trigger2DRecycler.ConfigureRecycleComponent``1(UnityEngine.GameObject)">
+            <summary>
+            Sets up a GameObject to be recycled trigger mask
+            <para>Override to configure additional functionality to the pooled object</para>
+            </summary>
+            <typeparam name="T">Type of Recycle component to use</typeparam>
+            <param name="pooledObject">GameObject from the pool to be recycled</param>
+            <returns>A configured recycle component</returns>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.TriggerRecycler">
+            <summary>
+            Recycles a pooled object on a collider trigger event
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.TriggerRecycler.ConfigureRecycleComponent``1(UnityEngine.GameObject)">
+            <summary>
+            Sets up a GameObject to be recycled trigger mask
+            <para>Override to configure additional functionality to the pooled object</para>
+            </summary>
+            <typeparam name="T">Type of Recycle component to use</typeparam>
+            <param name="pooledObject">GameObject from the pool to be recycled</param>
+            <returns>A configured recycle component</returns>
+        </member>
+        <member name="T:PoolEverything.PoolRecyclers.ValueRecycler">
+            <summary>
+            Recycler to deactivate pooled object depending on value comparision condition
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolRecyclers.ValueRecycler.valueInfo">
+            <summary>
+            The values on these members can be compared and monitored
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.ValueRecycler.Awake">
+            <summary>
+            Initializes recycler value info
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.ValueRecycler.ConfigureRecycleComponent``1(UnityEngine.GameObject)">
+            <summary>
+            Sets up a GameObject to be recycled
+            <para>Override to configure additional functionality to the pooled object</para>
+            </summary>
+            <typeparam name="T">Type of Recycle component to use</typeparam>
+            <param name="pooledObject">GameObject from the pool to be recycled</param>
+            <returns>A configured recycle component</returns>
+        </member>
+        <member name="M:PoolEverything.PoolRecyclers.ValueRecycler.SetDefaultValue(UnityEngine.Component)">
+            <summary>
+            Sets the default value member the script to value info default value
+            </summary>
+            <param name="script">Script component to modify</param>
+        </member>
+        <member name="T:PoolEverything.ReflectionInfo.ColliderValueInfo">
+            <summary>
+            Takes a target Object and provides popups to the behaviours and their members
+            <para>The values on these members can be modified and monitored and the GameObject deavtivated</para>
+            </summary>
+        </member>
+        <member name="P:PoolEverything.ReflectionInfo.ColliderValueInfo.deactivate">
+            <summary>
+            Deactivate the GameObject when value meets comparer condition
+            </summary>
+        </member>
+        <member name="T:PoolEverything.ReflectionInfo.ComparerCondition">
+            <summary>
+            Comparison types for values
+            <para>All values types must implement IComparable for proper functionality</para>
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.ComparerCondition.Equal">
+            <summary>
+            Values are equal comparable 0
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.ComparerCondition.Less">
+            <summary>
+            Value is less comparable -1
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.ComparerCondition.Greater">
+            <summary>
+            Value is less comparable 1
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.ComparerCondition.LessOrEqual">
+            <summary>
+            Value is less or equal comparable 0 or -1
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.ComparerCondition.GreaterOrEqual">
+            <summary>
+            Value is greater or equal comparable 0 or 1
+            </summary>
+        </member>
+        <member name="T:PoolEverything.ReflectionInfo.ComparerValueInfo">
+            <summary>
+            Takes a target Object and provides popups to the behaviours and their members
+            <para>The values on these members can be compared and monitored</para>
+            </summary>
+        </member>
+        <member name="P:PoolEverything.ReflectionInfo.ComparerValueInfo.condition">
+            <summary>
+            Condition for comparison types for values
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.ComparerValueInfo.CompareMember(UnityEngine.Component)">
+            <summary>
+            Compares target script member against the passed in script component value
+            </summary>
+            <param name="script">Object reference to the actual script to check the value</param>
+            <returns>True is conditional values are met False if not</returns>
+        </member>
+        <member name="T:PoolEverything.ReflectionInfo.DefaultValueInfo">
+            <summary>
+            Uses pooled target Object and provides popups to the behaviours and their members
+            <para>The values on these members can be compared and monitored</para>
+            </summary>
+        </member>
+        <member name="P:PoolEverything.ReflectionInfo.DefaultValueInfo.defaultValue">
+            <summary>
+            Initial value from script reference
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.DefaultValueInfo.Initialize">
+            <summary>
+            Initialize the member info
+            <para>Sets defaultValue to initial value from script reference</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.DefaultValueInfo.SetDefaultValue(UnityEngine.Component)">
+            <summary>
+            Sets the default value member the script to value info default value
+            </summary>
+            <param name="script">Script component to modify</param>
+        </member>
+        <member name="T:PoolEverything.ReflectionInfo.Invokers.InvokeOnSpawnTransform">
+            <summary>
+            Behaviour that invokes a method on a GameObejct when a pooled object is spawned
+            <para>Passes the pooled object's transform as a parameter</para>
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.Invokers.InvokeOnSpawnTransform.m_TargetInfo">
+            <summary>
+            Takes a target Object and provides popups to the behaviours and their members
+            <para>The values on these members can be modified and monitored</para>
+            <para>In this case the member should be a method that will be invoked</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.Invokers.InvokeOnSpawnTransform.Awake">
+            <summary>
+            Awake is called when the script instance is being loaded
+            <para>Initializes target value info</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.Invokers.InvokeOnSpawnTransform.OnSpawnSuccess(System.Object,PoolEverything.PooledEventArgs)">
+            <summary>
+            Invoked method using pooled object transform as a parameter
+            </summary>
+            <param name="sender">Pooled component that sends the event, typically Pool Spawners</param>
+            <param name="e">Args passed with pool spawners and pool recyclers</param>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.Invokers.InvokeOnSpawnTransform.OnPoolSpawnSuccess(PoolEverything.PooledEventArgs)">
+            <summary>
+            Overide in classes that inherit to provide functionality
+            </summary>
+            <param name="e">Args passed with pool spawners and pool recyclers</param>
+        </member>
+        <member name="T:PoolEverything.ReflectionInfo.Invokers.InvokeOnRecycleTransform">
+            <summary>
+            Behaviour that invokes a method on a GameObejct when a pooled object is recycled
+            <para>Passes the pooled object's transform as a parameter</para>
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.Invokers.InvokeOnRecycleTransform.m_TargetInfo">
+            <summary>
+            Takes a target Object and provides popups to the behaviours and their members
+            <para>The values on these members can be modified and monitored</para>
+            <para>In this case the member should be a method that will be invoked</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.Invokers.InvokeOnRecycleTransform.Awake">
+            <summary>
+            Awake is called when the script instance is being loaded
+            <para>Initializes target value info</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.Invokers.InvokeOnRecycleTransform.OnRecyclerSuccess(System.Object,PoolEverything.PooledEventArgs)">
+            <summary>
+            Invoked method using pooled object transform as a parameter
+            </summary>
+            <param name="sender">Pooled component that sends the event, typically Pool Recyclers</param>
+            <param name="e">Args passed with pool spawners and pool recyclers</param>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.Invokers.InvokeOnRecycleTransform.OnPoolRecyclerSuccess(PoolEverything.PooledEventArgs)">
+            <summary>
+            Overide in derived classes to provide functionality
+            </summary>
+            <param name="e">Args passed with pool spawners and pool recyclers</param>
+        </member>
+        <member name="T:PoolEverything.ReflectionInfo.Invokers.InvokeOnPooledSpawn">
+            <summary>
+            Behaviour that invokes a method on a GameObejct when a pooled object is spawned
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.Invokers.InvokeOnPooledSpawn.m_PoolSpawners">
+            <summary>
+            PoolSpawner that is calling the incoke methods
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.Invokers.InvokeOnPooledSpawn.Awake">
+            <summary>
+            Awake is called when the script instance is being loaded
+            <para>Override in derived class to add functionality</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.Invokers.InvokeOnPooledSpawn.OnEnable">
+            <summary>
+            Subscribes to PoolSpawner success event
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.Invokers.InvokeOnPooledSpawn.OnDisable">
+            <summary>
+            Un-Subscribes to PoolSpawner success event
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.Invokers.InvokeOnPooledSpawn.OnSpawnSuccess(System.Object,PoolEverything.PooledEventArgs)">
+            <summary>
+            Overide in classes that inherit to provide functionality
+            </summary>
+            <param name="sender">Pooled component that sends the event, typically Pool Sapwners.</param>
+            <param name="e">Args passed with pool spawners and pool recyclers</param>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.Invokers.InvokeOnPooledSpawn.OnPoolSpawnSuccess(PoolEverything.PooledEventArgs)">
+            <summary>
+            Overide in classes that inherit to provide functionality
+            </summary>
+            <param name="e">Args passed with pool spawners and pool recyclers</param>
+        </member>
+        <member name="T:PoolEverything.ReflectionInfo.Invokers.InvokeOnPooledRecycle">
+            <summary>
+            Behaviour that invokes a method on a GameObejct when a pooled object is recycled
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.Invokers.InvokeOnPooledRecycle.m_PoolRecyclers">
+            <summary>
+            PoolSpawner that is calling the incoke methods
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.Invokers.InvokeOnPooledRecycle.Awake">
+            <summary>
+            Awake is called when the script instance is being loaded
+            <para>Override in derived class to add functionality</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.Invokers.InvokeOnPooledRecycle.OnEnable">
+            <summary>
+            Subscribes to PoolRecycler success event
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.Invokers.InvokeOnPooledRecycle.OnDisable">
+            <summary>
+            Un-Subscribes to PoolRecycler success event
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.Invokers.InvokeOnPooledRecycle.OnRecyclerSuccess(System.Object,PoolEverything.PooledEventArgs)">
+            <summary>
+            Overide in derived classes to provide functionality
+            </summary>
+            <param name="sender">Pooled component that sends the event, typically Pool Recyclers</param>
+            <param name="e">Args passed with pool spawners and pool recyclers</param>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.Invokers.InvokeOnPooledRecycle.OnPoolRecyclerSuccess(PoolEverything.PooledEventArgs)">
+            <summary>
+            Overide in derived classes to provide functionality
+            </summary>
+            <param name="e">Args passed with pool spawners and pool recyclers</param>
+        </member>
+        <member name="T:PoolEverything.ReflectionInfo.MethodParamsAttribute">
+            <summary>
+            Attribute to chnage the method member paremeter count and type of TargetValueInfo
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.MethodParamsAttribute.parameterType">
+            <summary>
+            Types that can be passed into the filter methods
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.MethodParamsAttribute.#ctor(System.Type)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:PoolEverything.ReflectionInfo.RecyclerValueInfo">
+            <summary>
+            Uses pooled target Object and provides popups to the behaviours and their members
+            <para>The values on these members can be compared and monitored</para>
+            </summary>
+        </member>
+        <member name="P:PoolEverything.ReflectionInfo.RecyclerValueInfo.defaultValue">
+            <summary>
+            Initial value from script reference
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.RecyclerValueInfo.Initialize">
+            <summary>
+            Initialize the member info
+            <para>Sets defaultValue to initial value from script reference</para>
+            </summary>
+        </member>
+        <member name="T:PoolEverything.ReflectionInfo.TargetMemberTypes">
+            <summary>
+            Member types used by Target ValueInfo class to validate accepted types
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.TargetMemberTypes.MEMBER">
+            <summary>
+            Used as default to indicate a member type needs selection
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.TargetMemberTypes.Field">
+            <summary>
+            Use a field member type
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.TargetMemberTypes.Method">
+            <summary>
+            Use a method/function member type
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.TargetMemberTypes.Property">
+            <summary>
+            Use a property member type
+            </summary>
+        </member>
+        <member name="T:PoolEverything.ReflectionInfo.TargetValueInfo">
+            <summary>
+            Takes a target Object and provides popups to the behaviours and their members
+            <para>The values on these members can be modified and monitored</para>
+            </summary>
+        </member>
+        <member name="P:PoolEverything.ReflectionInfo.TargetValueInfo.ValueBindingFlags">
+            <summary>
+            BindingFlags to use as filters for member lookups
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.TargetValueInfo.m_TargetReference">
+            <summary>
+            Reference to the Object being modified and/or monitored
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.TargetValueInfo.m_ScriptReference">
+            <summary>
+            Reference to the script on the Object being modified and/or monitored
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.TargetValueInfo.m_MemberName">
+            <summary>
+            Name of the menber to be modified or monitored
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.TargetValueInfo.m_MemberType">
+            <summary>
+            Member types used by Target ValueInfo class to validate accepted types
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.TargetValueInfo.m_MemberInfo">
+            <summary>
+            Member being targeted for value modification and/or monitoring
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.TargetValueInfo.m_ValueObject">
+            <summary>
+            Holds member value cast to primitive types
+            </summary>
+        </member>
+        <member name="P:PoolEverything.ReflectionInfo.TargetValueInfo.targetReference">
+            <summary>
+            Reference to the Object being modified and/or monitored
+            </summary>
+        </member>
+        <member name="P:PoolEverything.ReflectionInfo.TargetValueInfo.scriptReference">
+            <summary>
+            Reference to the script on the Object being modified and/or monitored
+            </summary>
+        </member>
+        <member name="P:PoolEverything.ReflectionInfo.TargetValueInfo.valueObject">
+            <summary>
+            Holds member value cast to primitive types
+            </summary>
+        </member>
+        <member name="P:PoolEverything.ReflectionInfo.TargetValueInfo.ValidMemberTypes">
+            <summary>
+            Valid members for this and all derived classed unless overridden
+            </summary>
+        </member>
+        <member name="P:PoolEverything.ReflectionInfo.TargetValueInfo.targetScript">
+            <summary>
+            Gets the script reference component on the target GameObject
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.TargetValueInfo.Initialize">
+            <summary>
+            Initialize the member info
+            <para>Uses local member type to select appropriate member info</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.TargetValueInfo.GetScript(UnityEngine.GameObject)">
+            <summary>
+            Gets the script reference component on the GameObject
+            </summary>
+            <param name="gameObject">GameObject to query for the script type component</param>
+            <returns>The component if attached to the gameObject, null if not</returns>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.TargetValueInfo.GetMemberInfo">
+            <summary>
+            Uses local member type to select appropriate member info
+            </summary>
+            <returns>The member if found, throws NotSupportedException if case is not valid</returns>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.TargetValueInfo.GetValue(UnityEngine.Object)">
+            <summary>
+            Gets the value on the member type in field or property
+            </summary>
+            <param name="script">Object reference to the actual script to check get the value</param>
+            <returns>The value of the member if a value is available, null if not</returns>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.TargetValueInfo.SetValue(UnityEngine.Object,System.Object)">
+            <summary>
+            Sets the value on the member type in field or property
+            <para>Value passed as the parameter MUST valid and TypeSafe</para>
+            <para>Checks are NOT preformed on the types for compatibility</para>
+            </summary>
+            <param name="script">Object reference to the actual script to check get the value</param>
+            <param name="rawValue">Value to set on member type of the script</param>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.TargetValueInfo.InvokeOrModifyMember(UnityEngine.GameObject,System.Object[])">
+            <summary>
+            Invoke the member if it is a method or modify the value for fields and properties
+            </summary>
+            <param name="gameObject">GameObject to modify values on</param>
+            <param name="methodParameters">Parameters passed to the method member if any</param>
+            <returns>True if the member was modified and a check condition matches, false if the condition is not met</returns>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.TargetValueInfo.InvokeMember(UnityEngine.Component,System.Object[])">
+            <summary>
+            Invoked the method member if it is a method
+            <para>Caller MUST know the member method is not null</para>
+            <para>Checks are NOT preformed on the types for compatibility</para>
+            </summary>
+            <param name="script">Object reference to the actual script to check get the value</param>
+            <param name="methodParameters">Parameters passed to the method member if any</param>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.TargetValueInfo.ModifyMember(UnityEngine.Component)">
+            <summary>
+            Modify the member value for fields and properties
+            </summary>
+            <param name="script">Object reference to the actual script to check get the value</param>
+            <returns>True if the member was modified and a check condition matches, false if the condition is not met</returns>
+        </member>
+        <member name="T:PoolEverything.ReflectionInfo.ValueObject">
+            <summary>
+            Holds member value cast to primitive types
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.ValueObject.assemblyQualifiedName">
+            <summary>
+            Assembly fully qualified name for type
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.ValueObject.boolValue">
+            <summary>
+            Holds the boolean value if assemblyQualifiedName is boolean
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.ValueObject.intValue">
+            <summary>
+            Holds the integer value if assemblyQualifiedName is integer
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.ValueObject.floatValue">
+            <summary>
+            Holds the float value if assemblyQualifiedName is float
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.ValueObject.enumIntValue">
+            <summary>
+            Holds the enum value if assemblyQualifiedName is enum
+            </summary>
+        </member>
+        <member name="F:PoolEverything.ReflectionInfo.ValueObject.stringValue">
+            <summary>
+            Holds the string value if assemblyQualifiedName is string
+            </summary>
+        </member>
+        <member name="M:PoolEverything.ReflectionInfo.ValueObject.GetValue">
+            <summary>
+            Gets the object value based on the raw Type FullName
+            </summary>
+            <returns>Object containing the member value</returns>
+        </member>
+        <member name="T:PoolEverything.PoolSpawners.RandomSpawner">
+            <summary>
+            Spawn a random pooled object from a list of pooled object indices
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.RandomSpawner.m_RandomObjects">
+            <summary>
+            Pooled object indices for which objects to spawn
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.RandomSpawner.m_PoolIndices">
+            <summary>
+            Indices used to select a pooled object
+            <para>Sequence of index for selected pooled objects</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.RandomSpawner.Awake">
+            <summary>
+            Awake is called when the script instance is being loaded
+            <para>Initilizes the random list on indices</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.RandomSpawner.SpawnObject">
+            <summary>
+            Spawns a pooled object at the spawner's position and rotation and set it to active
+            <para>A random pooled object from the index list in this case.</para>
+            </summary>
+        </member>
+        <member name="T:PoolEverything.PoolSpawners.ColliderSpawner">
+            <summary>
+            Collider base spawner that spawns the pooled objects on collider events
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.ColliderSpawner.m_ColliderFilter">
+            <summary>
+            Filter settings to limit checks to specific events
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.ColliderSpawner.Start">
+            <summary>
+            Start is called just before any of the Update methods is called the first time
+            <para>Monitors requests to spawn a pooled object</para>
+            </summary>
+            <returns>Enumerable pointer for Unity coroutine</returns>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.ColliderSpawner.ColliderCheck(PoolEverything.ColliderCondition,UnityEngine.Component)">
+            <summary>
+            Checks if filter matches configurations to trigger event
+            <para>Sets can spawn flag to true, spawner checks timer to spawn object</para>
+            </summary>
+            <param name="condition">Condition to check</param>
+            <param name="other">Other collider interacting with this collider</param>
+        </member>
+        <member name="T:PoolEverything.PoolSpawners.AmountSpawner">
+            <summary>
+            Spawner that spawns an amount pooled objects on start
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.AmountSpawner.Start">
+            <summary>
+            Spawns initial amount and starts coroutine to spawn repeated if set
+            </summary>
+            <returns>Enumerable pointer for Unity coroutine</returns>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.AmountSpawner.SpawnObject">
+            <summary>
+            Spawns amount requested
+            </summary>
+        </member>
+        <member name="T:PoolEverything.PoolSpawners.Collision2DSpawner">
+            <summary>
+            Spawner that spawns pooled objects on collider2D collision events
+            </summary>
+        </member>
+        <member name="T:PoolEverything.PoolSpawners.CollisionSpawner">
+            <summary>
+            Spawner that spawns pooled objects on collider collision events
+            </summary>
+        </member>
+        <member name="T:PoolEverything.PoolSpawners.ConditionalSpawner">
+            <summary>
+            Spawns a pooled object on a specific condition
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.ConditionalSpawner.Awake">
+            <summary>
+            Initilizes value info
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.ConditionalSpawner.Start">
+            <summary>
+            Monitors value info for conditional match
+            </summary>
+            <returns>Unity enumerable method</returns>
+        </member>
+        <member name="T:PoolEverything.PoolSpawners.InputButtonSpawner">
+            <summary>
+            Spawner that spawns pooled objects on input manager button events
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.InputButtonSpawner.GetInputDown">
+            <summary>
+            Gets the input manager button was just pressed
+            </summary>
+            <returns>True if input manager button is pressed False if not</returns>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.InputButtonSpawner.GetInput">
+            <summary>
+            Gets the input manager button is held
+            </summary>
+            <returns>True if input manager button is held False if not</returns>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.InputButtonSpawner.GetInputUp">
+            <summary>
+            Gets the input manager button was just released
+            </summary>
+            <returns>True if input manager button is released False if not</returns>
+        </member>
+        <member name="T:PoolEverything.PoolSpawners.InputKeySpawner">
+            <summary>
+            Spawner that spawns pooled objects on keyboard input events
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.InputKeySpawner.GetInputDown">
+            <summary>
+            Gets the keyboard input was just pressed
+            </summary>
+            <returns>True if keyboard input is pressed False if not</returns>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.InputKeySpawner.GetInput">
+            <summary>
+            Gets the keyboard input is held
+            </summary>
+            <returns>True if keyboard input is held False if not</returns>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.InputKeySpawner.GetInputUp">
+            <summary>
+            Gets the keyboard input was just released
+            </summary>
+            <returns>True if keyboard input is released False if not</returns>
+        </member>
+        <member name="T:PoolEverything.PoolSpawners.InputMouseSpawner">
+            <summary>
+            Spawner that spawns pooled objects on mouse button input events
+            </summary>
+        </member>
+        <member name="T:PoolEverything.PoolSpawners.InputMouseSpawner.Button">
+            <summary>
+            Mouse buttons enum
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.InputMouseSpawner.Button.None">
+            <summary>
+            No mouse button used
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.InputMouseSpawner.Button.Left">
+            <summary>
+            Left mouse button used for input checks
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.InputMouseSpawner.Button.Right">
+            <summary>
+            Right mouse button used for input checks
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.InputMouseSpawner.Button.Middle">
+            <summary>
+            Middle mouse button used for input checks
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.InputMouseSpawner.GetInputDown">
+            <summary>
+            Gets the mouse input was just pressed
+            </summary>
+            <returns>True if mouse input is pressed False if not</returns>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.InputMouseSpawner.GetInput">
+            <summary>
+            Gets the mouse input is held
+            </summary>
+            <returns>True if mouse input is held False if not</returns>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.InputMouseSpawner.GetInputUp">
+            <summary>
+            Gets the mouse input was just released
+            </summary>
+            <returns>True if mouse input is released False if not</returns>
+        </member>
+        <member name="T:PoolEverything.PoolSpawners.InputSpawner">
+            <summary>
+            Base spawner that spawns pooled objects on input events
+            </summary>
+        </member>
+        <member name="T:PoolEverything.PoolSpawners.InputSpawner.Action">
+            <summary>
+            Input actions allowed
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.InputSpawner.Action.Down">
+            <summary>
+            Input action down/click/pressed
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.InputSpawner.Action.Held">
+            <summary>
+            Input action held
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.InputSpawner.Action.Up">
+            <summary>
+            Input action up/released
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.InputSpawner.Awake">
+            <summary>
+            Awake is called when the script instance is being loaded
+            <para>Initilizes the GetInput callbacks registered with these input events.</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.InputSpawner.Start">
+            <summary>
+            Start is called just before any of the Update methods is called the first time
+            <para>Monitors requests to spawn a pooled object</para>
+            </summary>
+            <returns>Enumerable pointer for Unity coroutine</returns>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.InputSpawner.Update">
+            <summary>
+            Update is called every frame, if the MonoBehaviour is enabled and monitors input events
+            <para>Sets can spawn flag to true, spawner checks timer to spawn object</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.InputSpawner.GetInputDown">
+            <summary>
+            Override to get the input down action
+            </summary>
+            <returns>True if down False if not</returns>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.InputSpawner.GetInput">
+            <summary>
+            Override to get the input held action
+            </summary>
+            <returns>True if held False if not</returns>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.InputSpawner.GetInputUp">
+            <summary>
+            Override to get the input up action
+            </summary>
+            <returns>True if up False if not</returns>
+        </member>
+        <member name="T:PoolEverything.PoolSpawners.InputTouchSpawner">
+            <summary>
+            Spawner that spawns pooled objects on touch input events
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.InputTouchSpawner.GetInputDown">
+            <summary>
+            Gets the touch input has began
+            </summary>
+            <returns>True if touch when touch has began False if not</returns>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.InputTouchSpawner.GetInput">
+            <summary>
+            Gets the touch input is constant
+            </summary>
+            <returns>True if touch when touch has began False if not</returns>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.InputTouchSpawner.GetInputUp">
+            <summary>
+            Gets the touch input has ended
+            </summary>
+            <returns>True if touch when touch has ended False if not</returns>
+        </member>
+        <member name="T:PoolEverything.PoolSpawners.SpawnOrder">
+            <summary>
+            The order in which the pool objects are spawned
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.SpawnOrder.Ascending">
+            <summary>
+            Normal spawn order basic ascending looped from maximum to minimum
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.SpawnOrder.Descending">
+            <summary>
+            Descending spawn order looped from maximum to minimum
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.SpawnOrder.Randomize">
+            <summary>
+            Objects spawned in a random order
+            <para>uses UnityEngine.Random</para>
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.SpawnOrder.Manual">
+            <summary>
+            Will not spawn the next object in the pool list as the same object will be used unless changed through code.
+            </summary>
+        </member>
+        <member name="T:PoolEverything.PoolSpawners.PoolSpawner">
+            <summary>
+            Spawns pooled objects from the object pool via the pool manager
+            <para>This is the base class all spawners should inherit from</para>
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.PoolSpawner.m_PoolManager">
+            <summary>
+            Pool Manager to use for spawning objects
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.PoolSpawner.m_PoolIndex">
+            <summary>
+            Pool to use for spawn objects
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.PoolSpawner.m_PoolIndexes">
+            <summary>
+            Indices of the pools in the pool manager
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.PoolSpawner.m_Spawner">
+            <summary>
+            Spawner is where the object originates and orientes itself
+            <para>If not set the GameObject this component is attached to will be used</para>
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.PoolSpawner.m_SetActive">
+            <summary>
+            Set the active state of the object spawned
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.PoolSpawner.m_DetachOnSpawn">
+            <summary>
+            Unparent the spawned pooled object from the pool manager or not
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.PoolSpawner.m_SpawnOrder">
+            <summary>
+            The order in which the pool objects are spawned
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolSpawners.PoolSpawner.poolIndex">
+            <summary>
+            Pool to use to spawn objects
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolSpawners.PoolSpawner.poolIndexes">
+            <summary>
+            Indices of the pools in the pool manager
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolSpawners.PoolSpawner.spawnOrder">
+            <summary>
+            The order in which the pool objects are spawned
+            </summary>
+        </member>
+        <member name="P:PoolEverything.PoolSpawners.PoolSpawner.trans">
+            <summary>
+            Cached transform
+            </summary>
+        </member>
+        <member name="E:PoolEverything.PoolSpawners.PoolSpawner.onSpawnSuccess">
+            <summary>
+            Invoked when a pooled object was successfuly spawned
+            <para>Will not be called if the pool has no in-active objects when the request is made</para>
+            </summary>
+        </member>
+        <member name="E:PoolEverything.PoolSpawners.PoolSpawner.onSpawnFailed">
+            <summary>
+            Will be invoked if a request is made from the pool and it has no in-active objects 
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.PoolSpawner.OnSpawnSuccess">
+            <summary>
+            Invoked when a pooled object was successfuly spawned
+            <para>Will not be called if the pool has no in-active objects when the request is made</para>
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.PoolSpawner.OnSpawnFailed">
+            <summary>
+            Will be invoked if a request is made from the pool and it has no in-active objects 
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.PoolSpawner.Awake">
+            <summary>
+            Awake is called when the script instance is being loaded
+            <para>Checks that Pool Manager is not a null reference and initializes the cached transform property.</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.PoolSpawner.SpawnObject">
+            <summary>
+            Spawns a pooled object at the spawner's position and rotation and set it to active state of field
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.PoolSpawner.SpawnObject(UnityEngine.Transform,System.Boolean)">
+            <summary>
+            Spawns a pooled object at the spawner's position and rotation and set it to active
+            <param name="spawner">Parent spawner is where the object originates and orientes itself</param>
+            <param name="setActive">Set the active state of the spawned object</param>
+            </summary>
+        </member>
+        <member name="T:PoolEverything.PoolSpawners.PrefabsScripts.RecycleSpawner">
+            <summary>
+            Spawn pooled object on pooled recycle
+            <para>NOTE: Use only on prefabs that are managed by the Pool Manager</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.PrefabsScripts.RecycleSpawner.Awake">
+            <summary>
+            Awake is called when the script instance is being loaded
+            <para>Sets runtime Pool Manager from prefab selections</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.PrefabsScripts.RecycleSpawner.Start">
+            <summary>
+            Subscribes to recycling invocation to spawn pooled object selection
+            </summary>
+            <returns>Enumerable pointer for Unity coroutine</returns>
+        </member>
+        <member name="T:PoolEverything.PoolSpawners.TimedSpawner">
+            <summary>
+            Spawner that spawns pooled objects on timer
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.TimedSpawner.m_FirstSpawnDelay">
+            <summary>
+            The amount of time to wait before spawning the first object
+            </summary>
+        </member>
+        <member name="F:PoolEverything.PoolSpawners.TimedSpawner.m_Timer">
+            <summary>
+            Timer in seconds for time limits
+            <para>If minimum and maximum are the same this will indicate a constant time</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.TimedSpawner.Start">
+            <summary>
+            Start is called just before any of the Update methods is called the first time
+            <para>Monitors timer to spawn object</para>
+            </summary>
+            <returns>Enumerable pointer for Unity coroutine</returns>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.TimedSpawner.TimeSpawnObject">
+            <summary>
+            Spawn a pooled object if timer permits
+            </summary>
+            <returns>Enumerable pointer for Unity coroutine</returns>
+        </member>
+        <member name="M:PoolEverything.PoolSpawners.TimedSpawner.GetTime">
+            <summary>
+            Gets the time from a random range
+            <para>NOTE: Called once in the start to get minimum and maximum time value</para>
+            </summary>
+            <returns>Random time between two time values, if minimum and maximum are equal a constant time is returned</returns>
+        </member>
+        <member name="T:PoolEverything.PoolSpawners.Trigger2DSpawner">
+            <summary>
+            Spawner that spawns pooled objects on collider2D trigger events
+            </summary>
+        </member>
+        <member name="T:PoolEverything.PoolSpawners.TriggerSpawner">
+            <summary>
+            Spawner that spawns pooled objects on collider trigger events
+            </summary>
+        </member>
+    </members>
+</doc>

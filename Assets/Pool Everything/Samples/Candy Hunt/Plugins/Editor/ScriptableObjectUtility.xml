@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ScriptableObjectUtility</name>
+    </assembly>
+    <members>
+        <member name="T:ScriptableObjectUtility.ScriptableObjectUtils">
+            <summary>
+            Provides functionality to create ScriptableObjects for ScriptibleValues types
+            </summary>
+        </member>
+        <member name="M:ScriptableObjectUtility.ScriptableObjectUtils.SaveWithFilePanel(UnityEngine.ScriptableObject)">
+            <summary>
+            Opens save file paned for path to save ScriptableObject
+            </summary>
+            <param name="scriptableObject">ScriptableObject to make an asset from.</param>
+            <returns>Unique asset path ot generated asset path by GenerateUniqueAssetPath</returns>
+        </member>
+        <member name="M:ScriptableObjectUtility.ScriptableObjectUtils.SaveScriptableObject(UnityEngine.ScriptableObject,System.Boolean)">
+            <summary>
+            <para>Saves a ScriptableObject to the Assets/Resources folder if</para>
+            <para>path obtained from Selection.activeObject is NULL</para>
+            <para>NOTE: The folder path Assets/Resources will be created if it does not exists.</para>
+            </summary>
+            <param name="scriptableObject">ScriptableObject to make an asset from.</param>
+            <param name="selectOnCreate">Weather to select to newly created asset</param>
+            <returns>Unique asset path ot generated asset path by GenerateUniqueAssetPath</returns>
+        </member>
+        <member name="M:ScriptableObjectUtility.ScriptableObjectUtils.SaveScriptableObject(System.String,UnityEngine.ScriptableObject,System.Boolean)">
+            <summary>
+            Saves a ScriptableObject to the required path.
+            </summary>
+            <param name="path">Path including asset name</param>
+            <param name="scriptableObject">ScriptableObject to make an asset from.</param>
+            <param name="selectOnCreate">Weather to select to newly created asset</param>
+            <returns>Unique asset path ot generated asset path by GenerateUniqueAssetPath</returns>
+        </member>
+        <member name="T:ScriptableObjectUtility.Legacy.ScriptableObjectUtils">
+            <summary>
+            Provides functionality to create ScriptableObjects for ScriptibleValues types
+            <para>Use this method for Unity 4.5.2 and below</para>
+            </summary>
+        </member>
+        <member name="M:ScriptableObjectUtility.Legacy.ScriptableObjectUtils.SaveWithFilePanel(UnityEngine.ScriptableObject)">
+            <summary>
+            Opens save file paned for path to save ScriptableObject
+            <para>Use this method for Unity 4.5.2 and below</para>
+            </summary>
+            <param name="scriptableObject">ScriptableObject to make an asset from.</param>
+            <returns>Unique asset path ot generated asset path by GenerateUniqueAssetPath</returns>
+        </member>
+        <member name="M:ScriptableObjectUtility.Legacy.ScriptableObjectUtils.SaveScriptableObject(UnityEngine.ScriptableObject,System.Boolean)">
+            <summary>
+            <para>Saves a ScriptableObject to the Assets/Resources folder if</para>
+            <para>path obtained from Selection.activeObject is NULL</para>
+            <para>NOTE: The folder path Assets/Resources will be created if it does not exists.</para>
+            </summary>
+            <param name="scriptableObject">ScriptableObject to make an asset from.</param>
+            <param name="selectOnCreate">Weather to select to newly created asset</param>
+            <returns>Unique asset path ot generated asset path by GenerateUniqueAssetPath</returns>
+        </member>
+        <member name="M:ScriptableObjectUtility.Legacy.ScriptableObjectUtils.SaveScriptableObject(System.String,UnityEngine.ScriptableObject,System.Boolean)">
+            <summary>
+            Saves a ScriptableObject to the required path.
+            <para>Use this method for Unity 4.5.2 and below</para>
+            </summary>
+            <param name="path">Path including asset name</param>
+            <param name="scriptableObject">ScriptableObject to make an asset from.</param>
+            <param name="selectOnCreate">Weather to select to newly created asset</param>
+            <returns>Unique asset path ot generated asset path by GenerateUniqueAssetPath</returns>
+        </member>
+    </members>
+</doc>

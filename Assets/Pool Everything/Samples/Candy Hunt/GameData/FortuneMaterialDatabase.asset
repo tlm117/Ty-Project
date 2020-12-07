@@ -1,0 +1,203 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52632c92064d5a246838603dae7df117, type: 3}
+  m_Name: FortuneMaterialDatabase
+  m_EditorClassIdentifier: 
+  m_MaterialInfos:
+  - material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 1e2d4d32ef1745d46ac15cec9edb7e2a, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 3761163c3d2923a49a1c7e357e902fb7, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: eaf737cc4ae9c3f44a8a06b05e2621f9, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 2082eee0c1d4aca4a8e389d05d001c48, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 4ffc819c413c4fb44a0d63573b664012, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: b6bdc2b39d45cd449a9780a1f0019f68, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: f7a290e5e0345114ab88dc1b46353833, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: ecc503aa547f71546a7753c088ad24da, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 5b5627f2db094f547a07fec372ab0499, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 8f841de6047f3844a9af694f82ba3ddb, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 6c2aa402dab56d940b71f7bac7172dab, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 03f058eaca30a8f41837f674ec93a08f, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 1e51b41de6a1be04b96df38a1fd46ef3, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 099278bec442e2a4fb333b5230026808, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 6a49d472206532345a80903668bde64d, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 6daf0ecebcc02ff4baf138346e470516, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 95bc1c0d9fefac8458710ddbc9ce25b5, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 0f95c277c749a6b409fec51f11940ab4, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 090c007e0f5c88d4395f355e4ac74bd3, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: e8db1b262f3c92241b29c28874704741, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 466db69197954ef4c90b019252a96bb2, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 83befa703f836954a82d8cee3444614d, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 046ba2206da11c94a9ab0829d5f234df, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 329e203271b9ff4439be6a99ddc4cf94, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: e5e0f8f5d0e3499408e8e887430b0427, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 26b8d13a7402bfe4b873c68d11244752, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: fb5ce40b15047b24baabc585fab729a5, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 7a63173bb8dd773449728973c563a681, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: fba8803d15201564ea525d6fb402eab6, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 20c757e85fa5f5b45a75ed489733319e, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 2266bbd4481d1214e82faf7b1ce4d453, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: af3fed9782f58dd458a193603b96ee88, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: f54e01cd2e52c3a41a7b065ae44057af, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 38c33c39ba9751c409784ce1222e6e0c, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 65397c0b69f4c03438b14ed5eedc75cb, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 8381835a2ad35774b949bb5442606709, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 6715519928151c545bf91592e0ef5cbb, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 7f493638f0bae9e44b5d5af0f7cdeeeb, type: 2}
+    fortune: 1
+  - material: {fileID: 2100000, guid: 2cd81d30132569240815753fc7898a82, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 75db7812589c79d488415686c5e598a0, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: b2128fd4609c9da4b8b08277da8a0b9e, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: ac88bf9fe7646ad4ca522a6fba0a7cd7, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 92a752cdc7561884ea1836878bbb2e36, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: d956e57582dde784f9b00252b55f5897, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 99d1c2207e512054f8f6a80e4d79bb32, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 27ecbb40e54fe694f943ee2b0e92f02c, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: df03fef2493ff0a47a4de261579c234f, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 74a775f8f803b0044b4bbf3c91298b68, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: b963f1710e0b1f54e9fd61b10379b5b8, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: edb5337c09f75044bb523e19c82de2ab, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 8ec70f7d66c64044296f863026a7b36a, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 4837edbea7c38eb4cb2f0b09988a687d, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 606e8c1e9b2678f4a920ce6a24037f6b, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: f20000b4d23146a448c74cc909ba6050, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: ad35261f5ab698e48a479f63603d47ef, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 0ce3202db592e504e94a8d8c7b6e3d1c, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 56e35e6139edea04a91ed05f70bc7bf0, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: ebae4f8cca2c8b346bb5fbd3affea792, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 9946ce1717821f24ca1a91a3976972cd, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 0356732027f88e9498ff03700002b8c7, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 845ded35cd379d149a3216ac820ff367, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 9adb6938e84ecef4f9533be993eaa05d, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 7d4fd0a4c944a1743a09325949dfeae4, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: d4f7f6d4bad4bbd4dac39899a7371422, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 172fea989d57f9840a245652eb0a8bc0, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 44e0ac90b4ea18e43bf3d6b4844a4e17, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: ecbf5f6e561d862478af0e9c1cfbb8a7, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: de5e6f348f0ac50429ffaf92f397f3ab, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 99aca84024183094a876c3b12dc5728c, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: fd8e2ba6d96a896479727b3b70975f10, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 21e706d506f3f844da235e15a08a3e15, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: fa9f47c8e8697974cafcde41a99a5152, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 80a2895bb029c25409a0c6e9f2b87424, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 03fd3d941f81ad5418ea394133518a99, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 6b6cdb258687326459c0dec19401beed, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: a04c9fbe892e9374aba09d437cf283fa, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: b61fa6d2cb9db514084d4832dae1880e, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 698b7afe960176b4aada2353c7334a86, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: af36bb8c9972ac24d92aeab0c49f4d70, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 4301e981e2a6b9c459cd97173b19e131, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 0ffda685d8968854cb87c2197224e3c2, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 5df1a0912e71831449960c5421cda42b, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 69bc64969598593439644dcac61153a3, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 137b5261b932d1c47867fe79e8fa7325, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: cbf9a15e1eaf4c546935f4a734937d18, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 25ae79493104f754db6a9a69c813b68d, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: e680ebbfa8e89e3478beede5223237ef, type: 2}
+    fortune: 0
+  - material: {fileID: 2100000, guid: 0f391c611bf479e4085ad0b2bd3183b6, type: 2}
+    fortune: -1
+  - material: {fileID: 2100000, guid: b22f7750a6535914ea3aec550deb6107, type: 2}
+    fortune: -1
+  - material: {fileID: 2100000, guid: b1e35b96238a2bf48b5841e8d153a3a6, type: 2}
+    fortune: -1
+  - material: {fileID: 2100000, guid: 8de0406a062e9194faa8abb6d27d7ff3, type: 2}
+    fortune: -1
+  - material: {fileID: 2100000, guid: 40aaa892482307542a4011ca4296cf9a, type: 2}
+    fortune: -1
+  - material: {fileID: 2100000, guid: 0c3649f0832b2dd46b0eb0dc4d663430, type: 2}
+    fortune: -1

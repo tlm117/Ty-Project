@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InputAxesEditor</name>
+    </assembly>
+    <members>
+        <member name="T:InputAxesEditor.InputAxesPickerDrawer">
+            <summary>
+            Draws popup to pick an axes from the InputManager
+            </summary>
+        </member>
+        <member name="M:InputAxesEditor.InputAxesPickerDrawer.GetPropertyHeight(UnityEditor.SerializedProperty,UnityEngine.GUIContent)">
+            <summary>
+            Gets height to draw property
+            </summary>
+            <param name="property">Property field to draw</param>
+            <param name="label">Label text and tooltip for property</param>
+            <returns>Height to draw property</returns>
+        </member>
+        <member name="M:InputAxesEditor.InputAxesPickerDrawer.OnGUI(UnityEngine.Rect,UnityEditor.SerializedProperty,UnityEngine.GUIContent)">
+            <summary>
+            Draws property to the inspector
+            </summary>
+            <param name="position">Where to draw the property</param>
+            <param name="property">Property field to draw</param>
+            <param name="label">Label text and tooltip for property</param>
+        </member>
+        <member name="M:InputAxesEditor.InputAxesPickerDrawer.GetInputAxesNames">
+            <summary>
+            Gets an array of the Input Axis names accessible from the InputManager
+            </summary>
+            <returns>An array Axis names</returns>
+        </member>
+    </members>
+</doc>

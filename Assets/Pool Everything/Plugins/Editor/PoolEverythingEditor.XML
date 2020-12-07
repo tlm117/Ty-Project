@@ -1,0 +1,463 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PoolEverythingEditor</name>
+    </assembly>
+    <members>
+        <member name="T:PoolEverythingEditor.ColliderFilterDrawer">
+            <summary>
+            Draws collider filter properties to inspector GUI
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.ColliderFilterDrawer.GetPropertyHeight(UnityEditor.SerializedProperty,UnityEngine.GUIContent)">
+            <summary>
+            Gets the height of the property before drawing it
+            </summary>
+            <param name="property">Property passed in from the class field</param>
+            <param name="label">Label the property name and tooltip</param>
+            <returns>Height needed to draw the property in the inspector</returns>
+        </member>
+        <member name="M:PoolEverythingEditor.ColliderFilterDrawer.OnGUI(UnityEngine.Rect,UnityEditor.SerializedProperty,UnityEngine.GUIContent)">
+            <summary>
+            Called to draw the proeprty
+            </summary>
+            <param name="position">Rectangle position to draw property</param>
+            <param name="property">Peoperty passed in by the calss field</param>
+            <param name="label">Name and toolip of field property</param>
+        </member>
+        <member name="T:PoolEverythingEditor.Limits.LimitValueDrawer">
+            <summary>
+            Draws controls for minimum maximum value slider
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.Limits.LimitValueDrawer.OnGUI(UnityEngine.Rect,UnityEditor.SerializedProperty,UnityEngine.GUIContent)">
+            <summary>
+            Override this method to make your own GUI for the property.
+            </summary>
+            <param name="position">Rectangle on the screen to use for the property GUI.</param>
+            <param name="property">The SerializedProperty to make the custom GUI for.</param>
+            <param name="label">The label of this property.</param>
+        </member>
+        <member name="M:PoolEverythingEditor.Limits.LimitValueDrawer.GetPropertyHeight(UnityEditor.SerializedProperty,UnityEngine.GUIContent)">
+            <summary>
+            Get the height needed for a PropertyField control.
+            </summary>
+            <param name="property">Height of the property area.</param>
+            <param name="label">Descriptive text or image.</param>
+            <returns>The height returned by that drawer.</returns>
+        </member>
+        <member name="T:PoolEverythingEditor.PoolRecyclers.ValueRecyclerEditor">
+            <summary>
+            To draw pool value recyclers to Inspector GUI
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolRecyclers.ValueRecyclerEditor.Initialize">
+            <summary>
+            Setup Value recycler editor
+            </summary>
+        </member>
+        <member name="T:PoolEverythingEditor.PoolRecyclers.ColliderValueInfoDrawer">
+            <summary>
+            Custom editor to draw value info
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolRecyclers.ColliderValueInfoDrawer.GetPropertyHeight(UnityEditor.SerializedProperty,UnityEngine.GUIContent)">
+            <summary>
+            Gets the height and the property before drawing it
+            </summary>
+            <param name="property">Property passed in from the class field</param>
+            <param name="label">Label the property name and tooltip</param>
+            <returns>Height needed to draw the property in the inspector</returns>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolRecyclers.ColliderValueInfoDrawer.OnGUI(UnityEngine.Rect,UnityEditor.SerializedProperty,UnityEngine.GUIContent)">
+            <summary>
+            Called to draw the proeprty
+            </summary>
+            <param name="position">Rectangle position to draw property</param>
+            <param name="property">Peoperty passed in by the calss field</param>
+            <param name="label">Name and toolip of field property</param>
+        </member>
+        <member name="T:PoolEverythingEditor.PoolRecyclers.PoolRecyclerEditor">
+            <summary>
+            To draw pool recyclers to Inspector GUI
+            </summary>
+        </member>
+        <member name="F:PoolEverythingEditor.PoolRecyclers.PoolRecyclerEditor.m_Properties">
+            <summary>
+            Properties of the Pool recycler
+            </summary>
+        </member>
+        <member name="F:PoolEverythingEditor.PoolRecyclers.PoolRecyclerEditor.m_PoolIndexesList">
+            <summary>
+            Pool indexes (objects)
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolRecyclers.PoolRecyclerEditor.OnEnable">
+            <summary>
+            Initializes properties and foldouts
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolRecyclers.PoolRecyclerEditor.Initialize">
+            <summary>
+            Setup Pool recycler editor
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolRecyclers.PoolRecyclerEditor.OnDisable">
+            <summary>
+            Sets foldout state in editor prefs
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolRecyclers.PoolRecyclerEditor.OnInspectorGUI">
+            <summary>
+            Draws pool recyclers to Inspector GUI
+            </summary>
+        </member>
+        <member name="T:PoolEverythingEditor.PoolRecyclers.RecyclerValueInfoDrawer">
+            <summary>
+            Custom editor to draw value info
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolRecyclers.RecyclerValueInfoDrawer.GetTargetEnabled">
+            <summary>
+            Gets whether to enable the 
+            </summary>
+            <returns>The property is enabled or not</returns>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolRecyclers.RecyclerValueInfoDrawer.OnGUI(UnityEngine.Rect,UnityEditor.SerializedProperty,UnityEngine.GUIContent)">
+            <summary>
+            Called to draw the proeprty
+            </summary>
+            <param name="position">Rectangle position to draw property</param>
+            <param name="property">Peoperty passed in by the calss field</param>
+            <param name="label">Name and toolip of field property</param>
+        </member>
+        <member name="T:PoolEverythingEditor.ReflectionInfo.Invokers.InvokeOnPooledEditor">
+            <summary>
+            Custom editor to draw value info
+            </summary>
+        </member>
+        <member name="P:PoolEverythingEditor.ReflectionInfo.Invokers.InvokeOnPooledEditor.excludeProperty">
+            <summary>
+            Name of reference property to exclude, Pool Spawner or Pool Recycler
+            </summary>
+        </member>
+        <member name="P:PoolEverythingEditor.ReflectionInfo.Invokers.InvokeOnPooledEditor.headerTitle">
+            <summary>
+            Header title
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.ReflectionInfo.Invokers.InvokeOnPooledEditor.OnEnable">
+            <summary>
+            This function is called when the object becomes enabled and active inits properties
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.ReflectionInfo.Invokers.InvokeOnPooledEditor.OnInspectorGUI">
+            <summary>
+            Draws invoke spawner/recycler to Inspector GUI
+            </summary>
+        </member>
+        <member name="T:PoolEverythingEditor.ReflectionInfo.Invokers.InvokeOnPooledSpawnEditor">
+            <summary>
+            Custom editor to draw value info
+            </summary>
+        </member>
+        <member name="P:PoolEverythingEditor.ReflectionInfo.Invokers.InvokeOnPooledSpawnEditor.excludeProperty">
+            <summary>
+            Name of reference property to exclude, Pool Spawner or Pool Recycler
+            </summary>
+        </member>
+        <member name="P:PoolEverythingEditor.ReflectionInfo.Invokers.InvokeOnPooledSpawnEditor.headerTitle">
+            <summary>
+            Header title
+            </summary>
+        </member>
+        <member name="T:PoolEverythingEditor.ReflectionInfo.Invokers.InvokeOnPooledRecycleEditor">
+            <summary>
+            Custom editor to draw value info
+            </summary>
+        </member>
+        <member name="P:PoolEverythingEditor.ReflectionInfo.Invokers.InvokeOnPooledRecycleEditor.excludeProperty">
+            <summary>
+            Name of reference property to exclude, Pool Spawner or Pool Recycler
+            </summary>
+        </member>
+        <member name="P:PoolEverythingEditor.ReflectionInfo.Invokers.InvokeOnPooledRecycleEditor.headerTitle">
+            <summary>
+            Header title
+            </summary>
+        </member>
+        <member name="T:PoolEverythingEditor.ReflectionInfo.ComparerValueInfoDrawer">
+            <summary>
+            Custom editor to draw value info
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.ReflectionInfo.ComparerValueInfoDrawer.GetPropertyHeight(UnityEditor.SerializedProperty,UnityEngine.GUIContent)">
+            <summary>
+            Gets the height of the property before drawing it
+            </summary>
+            <param name="property">Property passed in from the class field</param>
+            <param name="label">Label the property name and tooltip</param>
+            <returns>Height needed to draw the property in the inspector</returns>
+        </member>
+        <member name="M:PoolEverythingEditor.ReflectionInfo.ComparerValueInfoDrawer.OnGUI(UnityEngine.Rect,UnityEditor.SerializedProperty,UnityEngine.GUIContent)">
+            <summary>
+            Called to draw the proeprty
+            </summary>
+            <param name="position">Rectangle position to draw property</param>
+            <param name="property">Peoperty passed in by the calss field</param>
+            <param name="label">Name and toolip of field property</param>
+        </member>
+        <member name="T:PoolEverythingEditor.ReflectionInfo.TargetValueInfoDrawer">
+            <summary>
+            Custom editor to draw value info
+            </summary>
+        </member>
+        <member name="T:PoolEverythingEditor.ReflectionInfo.TargetValueInfoDrawer.Properties">
+            <summary>
+            Property Relative references
+            </summary>
+        </member>
+        <member name="F:PoolEverythingEditor.ReflectionInfo.TargetValueInfoDrawer.m_ScriptIndex">
+            <summary>
+            The current script selected index
+            </summary>
+        </member>
+        <member name="F:PoolEverythingEditor.ReflectionInfo.TargetValueInfoDrawer.m_FieldIndex">
+            <summary>
+            The current field selected index
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.ReflectionInfo.TargetValueInfoDrawer.GetTargetEnabled">
+            <summary>
+            Gets whether to enable the 
+            </summary>
+            <returns>The property is enabled or not</returns>
+        </member>
+        <member name="M:PoolEverythingEditor.ReflectionInfo.TargetValueInfoDrawer.GetPropertyHeight(UnityEditor.SerializedProperty,UnityEngine.GUIContent)">
+            <summary>
+            Gets height to draw property
+            </summary>
+            <param name="property">Property field to draw</param>
+            <param name="label">Label text and tooltip for property</param>
+            <returns>Height to draw property</returns>
+        </member>
+        <member name="M:PoolEverythingEditor.ReflectionInfo.TargetValueInfoDrawer.OnGUI(UnityEngine.Rect,UnityEditor.SerializedProperty,UnityEngine.GUIContent)">
+            <summary>
+            Called to draw the proeprty
+            </summary>
+            <param name="position">Rectangle position to draw property</param>
+            <param name="property">Property passed in by the calss field</param>
+            <param name="label">Name and toolip of field property</param>
+        </member>
+        <member name="M:PoolEverythingEditor.Utils.EditorUtils.Foldout(System.Boolean,UnityEngine.GUIContent,System.Boolean,UnityEngine.GUIStyle)">
+            <summary>
+            Found: http://answers.unity3d.com/questions/684414/custom-editor-foldout-doesnt-unfold-when-clicking.html
+            Author: http://answers.unity3d.com/users/35800/frarees.html
+            </summary>
+            <param name="foldout"></param>
+            <param name="content"></param>
+            <param name="toggleOnLabelClick"></param>
+            <param name="style"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PoolEverythingEditor.Utils.EditorUtils.Foldout(System.Boolean,System.String,System.Boolean,UnityEngine.GUIStyle)">
+            <summary>
+            Found: http://answers.unity3d.com/questions/684414/custom-editor-foldout-doesnt-unfold-when-clicking.html
+            Author: http://answers.unity3d.com/users/35800/frarees.html
+            </summary>
+            <param name="foldout"></param>
+            <param name="content"></param>
+            <param name="toggleOnLabelClick"></param>
+            <param name="style"></param>
+            <returns></returns>
+        </member>
+        <member name="T:PoolEverythingEditor.PoolKeyPickerDrawer">
+            <summary>
+            Custom editor to draw popup to pick a pooled object
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolKeyPickerDrawer.OnGUI(UnityEngine.Rect,UnityEditor.SerializedProperty,UnityEngine.GUIContent)">
+            <summary>
+            Called to draw the proeprty
+            </summary>
+            <param name="position">Rectangle position to draw property</param>
+            <param name="property">Peoperty passed in by the calss field</param>
+            <param name="label">Name and toolip of field property</param>
+        </member>
+        <member name="T:PoolEverythingEditor.PoolManagerEditor">
+            <summary>
+            Draws pool manager to inspector GUI
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolManagerEditor.OnEnable">
+            <summary>
+            Finds properties and initializes pool lists
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolManagerEditor.OnInspectorGUI">
+            <summary>
+            Draws pool list to inspector GUI
+            </summary>
+        </member>
+        <member name="T:PoolEverythingEditor.PoolManagerPickerDrawer">
+            <summary>
+            Custom editor to draw pool manager picker
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolManagerPickerDrawer.OnGUI(UnityEngine.Rect,UnityEditor.SerializedProperty,UnityEngine.GUIContent)">
+            <summary>
+            Called to draw the proeprty
+            </summary>
+            <param name="position">Rectangle position to draw property</param>
+            <param name="property">Peoperty passed in by the calss field</param>
+            <param name="label">Name and toolip of field property</param>
+        </member>
+        <member name="T:PoolEverythingEditor.PoolReferenceEditor">
+            <summary>
+            Draws the pool reference to a prefab and the minimum and maximun values to spawn
+            </summary>
+        </member>
+        <member name="F:PoolEverythingEditor.PoolReferenceEditor.m_PoolIndexProperty">
+            <summary>
+            Pool Index property
+            </summary>
+        </member>
+        <member name="F:PoolEverythingEditor.PoolReferenceEditor.m_ReferenceProperty">
+            <summary>
+            Prefab reference property
+            </summary>
+        </member>
+        <member name="F:PoolEverythingEditor.PoolReferenceEditor.m_AmountProperty">
+            <summary>
+            Minimum and maximum amounts
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolReferenceEditor.OnEnable">
+            <summary>
+            Finds the properties
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolReferenceEditor.OnInspectorGUI">
+            <summary>
+            Draws inspector GUI
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolReferenceEditor.DoLayoutGUI">
+            <summary>
+            Draws GUI auto layout
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolReferenceEditor.DoGUI(UnityEngine.Rect)">
+            <summary>
+            Draws GUI layout
+            </summary>
+            <param name="rect">Rect to draw layout</param>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolReferenceEditor.DoLayoutGUI(UnityEditor.SerializedProperty,UnityEditor.SerializedProperty)">
+            <summary>
+            Draws GUI auto layout
+            </summary>
+            <param name="referenceProperty">Prefab reference property</param>
+            <param name="amountProperty">Minimum and maximum amounts property</param>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolReferenceEditor.DoGUI(UnityEngine.Rect,UnityEditor.SerializedProperty,UnityEditor.SerializedProperty)">
+            <summary>
+            
+            </summary>
+            <param name="rect">Where to draw the property</param>
+            <param name="referenceProperty">Prefab reference property</param>
+            <param name="amountProperty">Minimum and maximum amounts property</param>
+        </member>
+        <member name="T:PoolEverythingEditor.Pools.PoolEditor">
+            <summary>
+            Custom editor to draw pool editor
+            </summary>
+        </member>
+        <member name="F:PoolEverythingEditor.Pools.PoolEditor.m_PoolReferencesProperty">
+            <summary>
+            Pool reference property
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.Pools.PoolEditor.OnEnable">
+            <summary>
+            Initializes pool reference property
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.Pools.PoolEditor.OnDisable">
+            <summary>
+            Override on inspector disabled
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.Pools.PoolEditor.OnDestroy">
+            <summary>
+            Override on inspector destroyed
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.Pools.PoolEditor.OnInspectorGUI">
+            <summary>
+            Draws pool reference 
+            </summary>
+        </member>
+        <member name="T:PoolEverythingEditor.PoolSpawners.RandomSpawnerEditor">
+            <summary>
+            Draws the random spawner inspector GUI properties
+            </summary>
+        </member>
+        <member name="F:PoolEverythingEditor.PoolSpawners.RandomSpawnerEditor.m_ReorderableList">
+            <summary>
+            Reorderable list used to draw auto list for easy array modification
+            </summary>
+        </member>
+        <member name="F:PoolEverythingEditor.PoolSpawners.RandomSpawnerEditor.m_RandomObjectsProperty">
+            <summary>
+            Additional pooled object list
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolSpawners.RandomSpawnerEditor.OnEnable">
+            <summary>
+            This function is called when the object becomes enabled and active
+            <para>Initializes the ReorderableList and sets callbacks</para>
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolSpawners.RandomSpawnerEditor.OnInspectorGUI">
+            <summary>
+            Draws inspector GUI
+            </summary>
+        </member>
+        <member name="T:PoolEverythingEditor.PoolSpawners.PoolSpawnerEditor">
+            <summary>
+            To draw pool spawners to Inspector GUI
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolSpawners.PoolSpawnerEditor.OnEnable">
+            <summary>
+            Initializes properties and foldouts
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolSpawners.PoolSpawnerEditor.OnDisable">
+            <summary>
+            Sets foldout state in editor prefs
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolSpawners.PoolSpawnerEditor.OnInspectorGUI">
+            <summary>
+            Draws pool spawners to Inspector GUI
+            </summary>
+        </member>
+        <member name="T:PoolEverythingEditor.PoolSpawners.SpawnAtRecycleEditor">
+            <summary>
+            Custom editor to draw popup to pick a pooled object
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolSpawners.SpawnAtRecycleEditor.OnEnable">
+            <summary>
+            This function is called when the object becomes enabled and active inits properties
+            </summary>
+        </member>
+        <member name="M:PoolEverythingEditor.PoolSpawners.SpawnAtRecycleEditor.OnInspectorGUI">
+            <summary>
+            Draws inspector GUI
+            </summary>
+        </member>
+    </members>
+</doc>

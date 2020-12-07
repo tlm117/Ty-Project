@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InputAxes</name>
+    </assembly>
+    <members>
+        <member name="T:InputAxes.InputAxesPickerAttribute">
+            <summary>
+            Attribute to draw a Input Manager popup to replace the text field slot
+            </summary>
+        </member>
+        <member name="F:InputAxes.InputAxesPickerAttribute.label">
+            <summary>
+            Label to replace the default field name
+            </summary>
+        </member>
+        <member name="M:InputAxes.InputAxesPickerAttribute.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+    </members>
+</doc>
